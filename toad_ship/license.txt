@@ -1,0 +1,11 @@
+Model Information:
+* title:	Toad ship
+* source:	https://sketchfab.com/3d-models/toad-ship-2d9be606786b4000bd45c33487034e39
+* author:	naviogutierrezdavid (https://sketchfab.com/naviogutierrezdavid)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Toad ship" (https://sketchfab.com/3d-models/toad-ship-2d9be606786b4000bd45c33487034e39) by naviogutierrezdavid (https://sketchfab.com/naviogutierrezdavid) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
