@@ -1,2 +1,5 @@
 res://procedural_tree_generator/scene_conifer.tscn
 res://procedural_tree_generator/first_scene.tscn
+res://procedural_tree_generator/scene_one.tscn
+res://procedural_tree_generator/scene_deciduous_fluffly.tscn
+res://procedural_tree_generator/scene_deciduous_flat.tscn

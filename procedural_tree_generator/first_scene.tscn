@@ -52,3 +52,12 @@ transform = Transform3D(0.00949439, 0, 0.999955, 0, 1, 0, -0.999955, 0, 0.009494
 
 [node name="Sketchfab_Scene14" parent="." instance=ExtResource("6_at4gv")]
 transform = Transform3D(0.99976, 0, -0.0219196, 0, 1, 0, 0.0219196, 0, 0.99976, -9.32291, -0.304389, -10.2494)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.919465, 5.17509e-09, -0.393172, -0.255866, 0.759271, 0.598364, 0.298524, 0.650774, -0.698124, 7.20441, 5.38784, -18.6576)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.90637, -0.0327561, 0.421214, 0.00481036, 0.996125, 0.0878155, -0.422458, 0.0816195, -0.9027, 7.78358, 1.33133, -16.5831)
+fov = 61.875
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
