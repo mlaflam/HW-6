@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dp1ngww1rttcf"]
+[gd_scene load_steps=12 format=3 uid="uid://dp1ngww1rttcf"]
 
 [ext_resource type="PackedScene" uid="uid://dm8vb3ty3aw3s" path="res://toad/scene.gltf" id="1_i1uig"]
 [ext_resource type="PackedScene" uid="uid://olwo2fo7wjf6" path="res://procedural_tree_generator/scene.gltf" id="2_5h7lr"]
@@ -6,8 +6,42 @@
 [ext_resource type="PackedScene" uid="uid://c7al1n1gxpmdu" path="res://procedural_tree_generator/scene_conifer.tscn" id="4_q4bmc"]
 [ext_resource type="PackedScene" uid="uid://brmgngxi0v1nq" path="res://procedural_tree_generator/scene_deciduous_fluffly.tscn" id="5_72dnc"]
 [ext_resource type="PackedScene" uid="uid://kc68f8q3whbj" path="res://procedural_tree_generator/scene_deciduous_flat.tscn" id="6_at4gv"]
+[ext_resource type="Shader" path="res://procedural_tree_generator/SkyShader.gdshader" id="7_sngb0"]
+[ext_resource type="AudioStream" uid="uid://diapgygrndpfh" path="res://Rosalina's_Storybook.mp3" id="7_t6avj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pneuo"]
+shader = ExtResource("7_sngb0")
+shader_parameter/clouds_samples = 16
+shader_parameter/shadow_sample = 4
+shader_parameter/clouds_density = 0.5
+shader_parameter/clouds_scale = 1.0
+shader_parameter/clouds_smoothness = 0.035
+shader_parameter/clouds_light_color = null
+shader_parameter/clouds_shadow_intensity = 1.0
+shader_parameter/high_clouds_density = 0.0
+shader_parameter/top_color = Color(0.890196, 0.266667, 0.74902, 1)
+shader_parameter/bottom_color = Color(0.172549, 0, 0.682353, 1)
+shader_parameter/sun_scatter = Color(0.784314, 1, 1, 1)
+shader_parameter/astro_tint = null
+shader_parameter/astro_scale = 1.0
+shader_parameter/astro_intensity = 1.0
+shader_parameter/stars_intensity = 5.0
+shader_parameter/shooting_stars_intensity = 0.0
+shader_parameter/shooting_star_tint = Color(1, 1, 1, 1)
+
+[sub_resource type="Sky" id="Sky_joytg"]
+sky_material = SubResource("ShaderMaterial_pneuo")
+
+[sub_resource type="Environment" id="Environment_qqvl0"]
+background_mode = 2
+background_energy_multiplier = 0.8
+sky = SubResource("Sky_joytg")
+ambient_light_source = 3
+ambient_light_color = Color(0.137255, 0.415686, 0.713726, 1)
+ambient_light_energy = 5.6
 
 [node name="Node3D" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 0.998091, 0.0617628, 0, -0.0617628, 0.998091, 0, 0, 0)
 
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("1_i1uig")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 17.7137, 1.46636, -2.26964)
@@ -18,7 +52,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.69913, -0.834084, 30.8085)
 visible = false
 
 [node name="Sketchfab_Scene4" parent="." instance=ExtResource("3_uwl05")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.15524, -0.114741, -5.27728)
+transform = Transform3D(1, 0, 0, 0, 1, 6.91604e-10, 0, 6.91604e-10, 1, 7.19663, -0.114741, -5.27728)
 
 [node name="Sketchfab_Scene5" parent="." instance=ExtResource("4_q4bmc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.2841, -0.133092, 1.2375)
@@ -57,7 +91,49 @@ transform = Transform3D(0.99976, 0, -0.0219196, 0, 1, 0, 0.0219196, 0, 0.99976, 
 transform = Transform3D(-0.919465, 5.17509e-09, -0.393172, -0.255866, 0.759271, 0.598364, 0.298524, 0.650774, -0.698124, 7.20441, 5.38784, -18.6576)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-0.90637, -0.0327561, 0.421214, 0.00481036, 0.996125, 0.0878155, -0.422458, 0.0816195, -0.9027, 7.78358, 1.33133, -16.5831)
-fov = 61.875
+transform = Transform3D(-0.90637, -0.0327561, 0.421214, -0.0310422, 0.999458, 0.0109269, -0.421343, -0.00317161, -0.906896, 7.78358, 1.33133, -16.5831)
+fov = 65.4997
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qqvl0")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_t6avj")
+volume_db = -11.0
+autoplay = true
+
+[node name="Sketchfab_Scene15" parent="." instance=ExtResource("5_72dnc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9721, 0, 6.47666)
+
+[node name="Sketchfab_Scene16" parent="." instance=ExtResource("6_at4gv")]
+transform = Transform3D(0.0411607, 0, 0.999153, 0, 1, 0, -0.999153, 0, 0.0411607, -8.79426, 0, 13.3808)
+
+[node name="Sketchfab_Scene17" parent="." instance=ExtResource("5_72dnc")]
+transform = Transform3D(0.0167021, 0, 0.999861, 0, 1, 0, -0.999861, 0, 0.0167021, 6.38986, 1.90735e-06, 7.28315)
+
+[node name="Sketchfab_Scene18" parent="." instance=ExtResource("4_q4bmc")]
+transform = Transform3D(-0.0041713, 0, 0.999991, 0, 1, 0, -0.999991, 0, -0.00417134, 7.47598, 0, 5.38093)
+
+[node name="Sketchfab_Scene19" parent="." instance=ExtResource("6_at4gv")]
+transform = Transform3D(1, 0, 0, 0, 0.999998, -0.0018675, 0, 0.0018675, 0.999998, -18.2436, 0, -11.1643)
+
+[node name="Sketchfab_Scene20" parent="." instance=ExtResource("5_72dnc")]
+transform = Transform3D(0.0380913, 0, 0.999274, 0, 1, 0, -0.999274, 0, 0.0380913, -7.49581, 0, 10.9169)
+
+[node name="Sketchfab_Scene21" parent="." instance=ExtResource("6_at4gv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.9173, 0, 8.52625)
+
+[node name="Sketchfab_Scene22" parent="." instance=ExtResource("4_q4bmc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.1906, 0, 6.46476)
+
+[node name="Sketchfab_Scene23" parent="." instance=ExtResource("5_72dnc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.2085, 0, -8.12807)
+
+[node name="Sketchfab_Scene24" parent="." instance=ExtResource("6_at4gv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.7319, 0, -11.9656)
+
+[node name="Sketchfab_Scene25" parent="." instance=ExtResource("5_72dnc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.90753, 0, -7.90833)
+
+[node name="Sketchfab_Scene26" parent="." instance=ExtResource("4_q4bmc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.67705, 0, 7.83744)
